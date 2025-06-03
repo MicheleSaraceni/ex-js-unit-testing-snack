@@ -6,7 +6,7 @@ function getInitials(nomecognome) {
 
 //--------------------------------------------------------------------SNACK 2
 function createSlug(stringa) {
-    return `${stringa.toLowerCase()}`
+    return `${stringa.toLowerCase().replaceAll(" ", "-")}`
 }
 
 //--------------------------------------------------------------------SNACK 3
@@ -14,6 +14,8 @@ function average(arrayNum) {
     const somma = arrayNum.reduce((acc, n) => acc + n, 0)
     return somma / arrayNum.length
 }
+
+
 
 
 module.exports = {
