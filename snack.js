@@ -9,8 +9,15 @@ function createSlug(stringa) {
     return `${stringa.toLowerCase()}`
 }
 
+//--------------------------------------------------------------------SNACK 3
+function average(arrayNum) {
+    const somma = arrayNum.reduce((acc, n) => acc + n, 0)
+    return somma / arrayNum.length
+}
+
 
 module.exports = {
     getInitials,
     createSlug,
+    average,
 }
