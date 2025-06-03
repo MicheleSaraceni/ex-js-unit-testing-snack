@@ -24,12 +24,28 @@ function isPalindrome(stringa) {
     return stringa === inversione
 }
 
+//--------------------------------------------------------------------SNACK 7
+function findPostById(posts, id) {
 
+    posts.forEach(post => {
+        if (post.id === undefined || post.title === undefined || post.slug === undefined) {
+            throw new Error("Dati passati non validi")
+        }
+    })
+
+
+    if (typeof id !== "number") {
+        throw new Error("Dati passati non validi")
+    }
+
+    return posts.find(post => post.id === id);
+}
 
 
 module.exports = {
     getInitials,
     createSlug,
     average,
-    isPalindrome
+    isPalindrome,
+    findPostById
 }

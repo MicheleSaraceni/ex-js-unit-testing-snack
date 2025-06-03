@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average, isPalindrome } = require("./snack")
+const { getInitials, createSlug, average, isPalindrome, findPostById } = require("./snack")
 
 //--------------------------------------------------------------------SNACK 1
 test('La funzione getInitials restituisce le iniziali di un nome completo.', () => {
@@ -31,3 +31,16 @@ test('La funzione createSlug lancia un errore se il titolo è vuoto o non valido
     expect(() => createSlug("")).toThrow("Titolo non valido");
     expect(() => createSlug(null)).toThrow("Titolo non valido");
 });
+
+//--------------------------------------------------------------------SNACK 7
+const posts = [
+    { id: 1, title: "Le mele piu belle", slug: "le-mele-piu-belle" },
+    { id: 2, title: "I cocomeri piu tondi", slug: "i-cocomeri-piu-tondi" },
+    { id: 3, title: "Le albicocche piu arancioni", slug: "le-albicocche-piu-arancioni" }
+]
+test('La funzione findPostById restituisce il post corretto dato l’array di post e l’id', () => {
+    expect(findPostById(posts, 3)).toEqual({ id: 3, title: "Le albicocche piu arancioni", slug: "le-albicocche-piu-arancioni" });
+    expect(() => findPostById(["Ciao", 3, { Nome: "luca" }], 3)).toThrow("Dati passati non validi")
+    expect(() => findPostById(posts, "3")).toThrow("Dati passati non validi")
+});
+
